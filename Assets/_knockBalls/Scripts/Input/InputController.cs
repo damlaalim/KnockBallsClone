@@ -1,10 +1,12 @@
+using _knockBalls.Scripts.Bullet;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace _knockBalls.Scripts.Controller
+namespace _knockBalls.Scripts.Input
 {
     public class InputController : MonoBehaviour
     {
+        public BulletManager BulletManager;
         private Camera _mainCamera;
         
         private PlayerInput _playerInput;
@@ -36,14 +38,16 @@ namespace _knockBalls.Scripts.Controller
             if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
             {
                 var touchPos = Touchscreen.current.primaryTouch.position.ReadValue();
-                var worldPosition = _mainCamera.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, _mainCamera.nearClipPlane));
+                var worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, 50));
+                BulletManager.ShootTheBullet(worldPos);
             }
             
             // mouse touch
             if (TouchedThisFrame())
             {
-                var mousePosition = Mouse.current.position.ReadValue();
-                var worldPosition = _mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, _mainCamera.nearClipPlane));
+                var mousePos = Mouse.current.position.ReadValue();
+                var worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 50));
+                BulletManager.ShootTheBullet(worldPos);
             }
         }
     }
