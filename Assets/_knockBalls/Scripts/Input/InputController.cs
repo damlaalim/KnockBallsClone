@@ -6,7 +6,7 @@ namespace _knockBalls.Scripts.Input
 {
     public class InputController : MonoBehaviour
     {
-        public BulletManager BulletManager;
+        [SerializeField] private BulletManager _bulletManager;
         private Camera _mainCamera;
         
         private PlayerInput _playerInput;
@@ -39,7 +39,7 @@ namespace _knockBalls.Scripts.Input
             {
                 var touchPos = Touchscreen.current.primaryTouch.position.ReadValue();
                 var worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, 50));
-                BulletManager.ShootTheBullet(worldPos);
+                _bulletManager.ShootTheBullet(worldPos);
             }
             
             // mouse touch
@@ -47,7 +47,7 @@ namespace _knockBalls.Scripts.Input
             {
                 var mousePos = Mouse.current.position.ReadValue();
                 var worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 50));
-                BulletManager.ShootTheBullet(worldPos);
+                _bulletManager.ShootTheBullet(worldPos);
             }
         }
     }
