@@ -5,20 +5,16 @@ namespace _knockBalls.Scripts.Target
 {
     public class TargetController : MonoBehaviour
     {
-        [SerializeField] private bool _isGroup;
-        [SerializeField] private TargetGroup _targetGroup;
         [SerializeField] private float _destroyTime;
-
+        [SerializeField] protected Rigidbody rb;
+        
         private bool _isDestroy;
 
-        public void Destroy()
+        public virtual void Destroy()
         {
             if (_isDestroy) return;
             _isDestroy = true;
 
-            if (_isGroup && _targetGroup)
-                _targetGroup.TargetDestroyed?.Invoke();
-            
             StartCoroutine(Destroy_Routine());
         }
 
@@ -37,6 +33,11 @@ namespace _knockBalls.Scripts.Target
             }
 
             transform.localScale = Vector3.zero;
+        }
+
+        public void Explode(float power, Vector3 explosionPos, float radius, float upForce)
+        {
+            rb.AddExplosionForce(power, explosionPos, radius, upForce, ForceMode.Impulse);
         }
     }
 }

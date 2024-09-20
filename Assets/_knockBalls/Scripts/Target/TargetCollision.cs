@@ -1,4 +1,4 @@
-﻿using System;
+﻿using _knockBalls.Scripts.Bullet;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Target
@@ -6,12 +6,17 @@ namespace _knockBalls.Scripts.Target
     public class TargetCollision : MonoBehaviour
     {
         [SerializeField] private TargetController _target;
-        
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.transform.CompareTag($"Plane"))
             {
                 _target.Destroy();
+            }
+            else if (other.transform.TryGetComponent<BulletController>(out _) &&
+                     TryGetComponent<TntTargetController>(out var tntTarget))
+            {
+                tntTarget.Explode();
             }
         }
 
