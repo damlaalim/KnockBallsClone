@@ -11,7 +11,7 @@ namespace _knockBalls.Scripts.Level
         public List<LevelController> levels;
         public ChapterController currentChapter;
 
-        private int LevelNumber
+        public int LevelNumber
         {
             get => PlayerPrefs.GetInt("level", 0);
             set => PlayerPrefs.SetInt("level", LevelNumber + 1 >= levels.Count ? 0 : value);
@@ -24,7 +24,7 @@ namespace _knockBalls.Scripts.Level
             Instance ??= this;
         }
 
-        private void Start()
+        public void StartGame()
         {
             Load();
         }
