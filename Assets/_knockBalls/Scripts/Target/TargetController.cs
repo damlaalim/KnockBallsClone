@@ -24,15 +24,15 @@ namespace _knockBalls.Scripts.Target
 
         private IEnumerator Destroy_Routine()
         {
-            var init = 0f;
+            var elapsed = 0f;
             var initScale = transform.localScale;
             
-            while (init <= _destroyTime)
+            while (elapsed <= _destroyTime)
             {
-                var normalized = init / _destroyTime;
+                var normalized = elapsed / _destroyTime;
                 transform.localScale = Vector3.Lerp(initScale, Vector3.zero, normalized);
                 
-                init += Time.deltaTime;
+                elapsed += Time.deltaTime;
                 yield return 0;
             }
 
