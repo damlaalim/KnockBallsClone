@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 8901248227565511553}
   - {fileID: 5621599929814681407}
   _anim: {fileID: 3575399538575596105}
+  _bulletMaxCount: 3
 --- !u!95 &3575399538575596105
 Animator:
   serializedVersion: 5

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _knockBalls.Scripts.Cannon;
+using _knockBalls.Scripts.Level;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Bullet
@@ -14,6 +15,9 @@ namespace _knockBalls.Scripts.Bullet
 
         public void ShootTheBullet(Vector3 targetPos)
         {
+            if (!LevelManager.Instance.currentChapter!.CanShoot())
+                return;
+            
             _cannonController.Shoot(targetPos);
             var bullet = GetBullet();
             

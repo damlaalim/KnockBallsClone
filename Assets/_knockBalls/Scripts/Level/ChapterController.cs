@@ -12,10 +12,13 @@ namespace _knockBalls.Scripts.Level
         // TODO: yaratılmış mermiler silinecek 
 
         public Action TargetFired;
-        
+
         [SerializeField] private List<TargetController> _targetList;
         [SerializeField] private Animator _anim;
+        [SerializeField] private int _bulletMaxCount;
+
         private LevelController _level;
+        private int _usedBulletCount;
 
         public void Initialize(LevelController level)
         {
@@ -44,7 +47,19 @@ namespace _knockBalls.Scripts.Level
         private void CallNextChapter()
         {
             _level.NextChapter();
+        }
+
+        public bool CanShoot()
+        {
+            _usedBulletCount++;
             
+            if (_usedBulletCount > _bulletMaxCount)
+            {
+                _level.ClearChapters();
+                return false;
+            }
+
+            return true;
         }
     }
 }

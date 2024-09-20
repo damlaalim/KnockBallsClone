@@ -32,6 +32,7 @@ namespace _knockBalls.Scripts.Level
         public void LoadChapter()
         {
             _currentChapterObject = Instantiate(_chapterList[_currentChapterNum], transform);
+            LevelManager.Instance.currentChapter = _currentChapterObject;
             _currentChapterObject.Initialize(this);
         }
 
@@ -39,6 +40,13 @@ namespace _knockBalls.Scripts.Level
         {
             if (_currentChapterObject)
                 Destroy(_currentChapterObject.gameObject);
+        }
+
+        public void ClearChapters()
+        {
+            _currentChapterNum = 0;
+            
+            NextChapter();   
         }
     }
 }

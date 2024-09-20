@@ -9,6 +9,7 @@ namespace _knockBalls.Scripts.Level
         public static LevelManager Instance { get; private set; } 
         
         public List<LevelController> levels;
+        public ChapterController currentChapter;
 
         private int LevelNumber
         {
