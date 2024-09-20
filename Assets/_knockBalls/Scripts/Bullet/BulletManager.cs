@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _knockBalls.Scripts.Cannon;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Bullet
@@ -6,14 +7,14 @@ namespace _knockBalls.Scripts.Bullet
     public class BulletManager : MonoBehaviour
     {
         [SerializeField] private GameObject _bullet;
-        [SerializeField] private Transform _initTransform, _ball;
+        [SerializeField] private Transform _initTransform;
+        [SerializeField] private CannonController _cannonController;
         
         private Stack<GameObject> _bulletPool = new Stack<GameObject>();
 
         public void ShootTheBullet(Vector3 targetPos)
         {
-            _ball.LookAt(targetPos);
-            
+            _cannonController.Shoot(targetPos);
             var bullet = GetBullet();
             
             var bulletController = bullet.GetComponent<BulletController>();
