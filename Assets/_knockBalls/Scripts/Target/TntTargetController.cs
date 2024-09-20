@@ -6,11 +6,13 @@ namespace _knockBalls.Scripts.Target
     {
         [SerializeField] private float _radius = 5f, _power = 100f, _upForce = 1f;
         [SerializeField] private ParticleSystem _explodeParticle;
-        
+
         public void Explode()
         {
             var particle = Instantiate(_explodeParticle);
             particle.Play();
+            
+            Destroy(particle.gameObject, 2f);
             
             var explosionPos = transform.position;
             var colliders = Physics.OverlapSphere(explosionPos, _radius);
@@ -22,6 +24,8 @@ namespace _knockBalls.Scripts.Target
                     targetController.Explode(_power, explosionPos, _radius, _upForce);
                 }
             }
+            
+            Destroy();
         }
     }
 }

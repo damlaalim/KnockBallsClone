@@ -236,10 +236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47976632f874415c9d61ed101522f075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShoot: 0
   _destroyTime: 2
   rb: {fileID: 551728513710418734}
   _radius: 5
-  _power: 50
+  _power: 7
   _upForce: 1
   _explodeParticle: {fileID: 198194127032045410, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
 --- !u!1 &4701792656905553154
