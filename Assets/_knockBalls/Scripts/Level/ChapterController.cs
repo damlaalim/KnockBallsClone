@@ -43,6 +43,8 @@ namespace _knockBalls.Scripts.Level
                 return;
             }
             
+            LevelManager.Instance.StopFinishFailChapter();
+            
             _anim.CrossFade("Close", 0f);
 
             Invoke(nameof(CallNextChapter), 1f);
@@ -56,16 +58,14 @@ namespace _knockBalls.Scripts.Level
         public bool CanShoot()
         {
             _usedBulletCount++;
-            
-            if (_usedBulletCount > _bulletMaxCount)
+
+            if (_usedBulletCount >= _bulletMaxCount)
             {
-                _level.ClearChapters();
-                return false;
+                LevelManager.Instance.FinishTheFailChapter();
+                // _level.ClearChapters();
             }
 
-            InGameCanvas.Instance.UpdateBulletCountTxt();
-            BulletManager.Instance.CloseLastBulletObject();
-            return true;
+            return _usedBulletCount <= _bulletMaxCount;
         }
     }
 }

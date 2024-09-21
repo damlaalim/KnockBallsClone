@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using _knockBalls.Scripts.CanvasSystem;
 using _knockBalls.Scripts.Data;
@@ -15,6 +16,10 @@ namespace _knockBalls.Scripts.Level
         public List<LevelController> levels;
         public ChapterController currentChapter;
 
+        [SerializeField] private float _failChapterFinishDelay;
+
+        private Coroutine _finishFailRoutine;
+        
         public int LevelNumber
         {
             get => PlayerPrefs.GetInt("level", 0);
@@ -56,6 +61,45 @@ namespace _knockBalls.Scripts.Level
         {
             Save();
             CanvasManager.Instance.Open(CanvasType.LevelSuccess);
+        }
+        
+        public void FinishTheFailChapter()
+        {
+            _finishFailRoutine = StartCoroutine(FinishTheFailChapter_Routine());
+        }
+
+        public void StopFinishFailChapter()
+        {
+            if (_finishFailRoutine is not null)
+                StopCoroutine(_finishFailRoutine);
+            
+            InGameCanvas.Instance.ShowLevelTimeText(false);
+            InGameCanvas.Instance.UpdateMaskImageScale(InGameCanvas.Instance.maskMaxScale * Vector3.one);
+        }
+
+        private IEnumerator FinishTheFailChapter_Routine()
+        {
+            var elapsed = 0f;
+            var elapsedReverse = _failChapterFinishDelay;
+            var inGame = InGameCanvas.Instance;
+
+            inGame.ShowLevelTimeText(true);
+            inGame.UpdateMaskImageScale(inGame.maskMaxScale * Vector3.one);
+            
+            while (elapsed <= _failChapterFinishDelay)
+            {
+                var normalized = elapsed / _failChapterFinishDelay;
+                
+                inGame.UpdateMaskImageScale(Vector3.Lerp(Vector3.one * inGame.maskMaxScale, Vector3.zero, normalized));
+                inGame.UpdateLevelTimeText(elapsedReverse.ToString("F1"));
+                
+                elapsed += Time.deltaTime;
+                elapsedReverse -= Time.deltaTime;
+                
+                yield return 0;
+            }
+            
+            _currentLevel.ClearChapters();
         }
     }
  }

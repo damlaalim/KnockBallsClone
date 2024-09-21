@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using _knockBalls.Scripts.Cannon;
+using _knockBalls.Scripts.CanvasSystem;
+using _knockBalls.Scripts.Game;
 using _knockBalls.Scripts.Level;
 using UnityEngine;
 
@@ -40,6 +42,9 @@ namespace _knockBalls.Scripts.Bullet
         {
             if (!LevelManager.Instance.currentChapter!.CanShoot())
                 return;
+            
+            InGameCanvas.Instance.UpdateBulletCountTxt();
+            CloseLastBulletObject();
             
             _cannonController.Shoot(targetPos);
             var bullet = GetBullet();
