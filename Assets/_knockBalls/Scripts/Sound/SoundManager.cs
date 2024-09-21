@@ -1,55 +1,28 @@
-﻿using UnityEngine;
+﻿using AYellowpaper.SerializedCollections;
+using UnityEngine;
 
 namespace _knockBalls.Scripts.Sound
 {
     public class SoundManager : MonoBehaviour
     {
-        public AudioSource GetMusicSource => musicSource;
-        public AudioSource GetEffectSource => effectSource;
+        public static SoundManager Instance { get; private set; }
 
-        [SerializeField] private AudioSource musicSource, effectSource;
-        [SerializeField] private <Data.AudioType, AudioClip> audioClipDict;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private SerializedDictionary<Data.AudioType, AudioClip> audioClipDict;
 
-        public void SetMusicValue(float value) => musicSource.volume = value;
-        public void SetEffectValue(float value) => effectSource.volume = value;
-
-        public void ChangeMusic(Data.AudioType type)
+        private void Awake()
         {
-            ChangeSound(type, false);
+            Instance ??= this;
         }
-
+        
         public void PlayEffect(Data.AudioType type)
         {
-            ChangeSound(type, true);
+            var audioSource = Instantiate(_audioSource);
+            audioSource.clip = audioClipDict[type];
+            audioSource.Play();
+            var clipLength = audioClipDict[type].length;
+            Destroy(audioSource.gameObject, clipLength);
         }
 
-        private void ChangeSound(Data.AudioType type, bool isEffect)
-        {
-            foreach (var (key, value) in audioClipDict)
-            {
-                if (key == type)
-                {
-                    if (isEffect)
-                    {
-                        effectSource.Stop();
-                        effectSource.clip = value;
-                        effectSource.Play();
-                    }
-                    else
-                    {
-                        musicSource.Stop();
-                        musicSource.clip = value;
-                        musicSource.Play();
-                    }
-
-                    break;
-                }
-            }
-        }
-
-        public void StopMusic()
-        {
-            musicSource.Stop();
-        }
     }
 }

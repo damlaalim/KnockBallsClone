@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShoot: 0
+  _hitAudio: 4
   _puan: 1
   _destroyTime: 2
   rb: {fileID: 4295141575812406258}

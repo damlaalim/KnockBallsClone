@@ -2,8 +2,10 @@
 using _knockBalls.Scripts.Game;
 using _knockBalls.Scripts.Level;
 using _knockBalls.Scripts.Score;
+using _knockBalls.Scripts.Sound;
 using TMPro;
 using UnityEngine;
+using AudioType = _knockBalls.Scripts.Data.AudioType;
 
 namespace _knockBalls.Scripts.CanvasSystem
 {
@@ -28,6 +30,16 @@ namespace _knockBalls.Scripts.CanvasSystem
                 _scoreText.text = scoreManager.GetScore.ToString();
             if (_highScoreText)
                 _highScoreText.text = scoreManager.GetHighScore.ToString();
+            
+            switch (canvasType)
+            {
+                case CanvasType.LevelFail:
+                    SoundManager.Instance.PlayEffect(AudioType.LevelFail);
+                    break;
+                case CanvasType.LevelSuccess:
+                    SoundManager.Instance.PlayEffect(AudioType.LevelSuccess);
+                    break;
+            }
             
             scoreManager.ResetScore();
         }

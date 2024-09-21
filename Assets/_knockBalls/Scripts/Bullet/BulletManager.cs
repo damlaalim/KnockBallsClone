@@ -3,7 +3,9 @@ using _knockBalls.Scripts.Cannon;
 using _knockBalls.Scripts.CanvasSystem;
 using _knockBalls.Scripts.Game;
 using _knockBalls.Scripts.Level;
+using _knockBalls.Scripts.Sound;
 using UnityEngine;
+using AudioType = _knockBalls.Scripts.Data.AudioType;
 
 namespace _knockBalls.Scripts.Bullet
 {
@@ -43,6 +45,7 @@ namespace _knockBalls.Scripts.Bullet
             if (!LevelManager.Instance.currentChapter!.CanShoot())
                 return;
             
+            SoundManager.Instance.PlayEffect(AudioType.Shoot);
             InGameCanvas.Instance.UpdateBulletCountTxt();
             CloseLastBulletObject();
             

@@ -13,10 +13,11 @@ namespace _knockBalls.Scripts.Target
             {
                 _target.Destroy();
             }
-            else if (other.transform.TryGetComponent<BulletController>(out _) &&
-                     TryGetComponent<TntTargetController>(out var tntTarget))
+            else if (other.transform.TryGetComponent<BulletController>(out var bulletController))
             {
-                tntTarget.Explode();
+                _target.PlayHitSound();
+                if (TryGetComponent<TntTargetController>(out var tntTarget))
+                    tntTarget.Explode();
             }
         }
 

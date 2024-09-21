@@ -2,6 +2,10 @@
 {
     public enum AudioType
     {
-        
+        LevelFail,
+        LevelSuccess,
+        Shoot,
+        GlassHit,
+        WoodHit
     }
 }

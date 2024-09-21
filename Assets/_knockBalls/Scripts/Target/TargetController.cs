@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using _knockBalls.Scripts.Level;
 using _knockBalls.Scripts.Score;
+using _knockBalls.Scripts.Sound;
 using UnityEngine;
+using AudioType = _knockBalls.Scripts.Data.AudioType;
 
 namespace _knockBalls.Scripts.Target
 {
@@ -9,6 +11,7 @@ namespace _knockBalls.Scripts.Target
     {
         public bool isShoot;
 
+        [SerializeField] private AudioType _hitAudio;
         [SerializeField] private int _puan;
         [SerializeField] private float _destroyTime;
         [SerializeField] protected Rigidbody rb;
@@ -52,6 +55,11 @@ namespace _knockBalls.Scripts.Target
         public void Explode(float power, Vector3 explosionPos, float radius, float upForce)
         {
             rb.AddExplosionForce(power, explosionPos, radius, upForce, ForceMode.Impulse);
+        }
+
+        public void PlayHitSound()
+        {
+            SoundManager.Instance.PlayEffect(_hitAudio);
         }
     }
 }
