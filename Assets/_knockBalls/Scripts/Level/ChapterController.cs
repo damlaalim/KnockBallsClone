@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _knockBalls.Scripts.Bullet;
+using _knockBalls.Scripts.CanvasSystem;
 using _knockBalls.Scripts.Target;
 using UnityEngine;
 
@@ -8,10 +10,10 @@ namespace _knockBalls.Scripts.Level
 {
     public class ChapterController : MonoBehaviour
     {
-        // TODO: yaratılmış mermiler silinecek 
-
         public Action TargetFired;
         public int chapterNum, maxChapterInLevel;
+
+        public int RemainingNumberCount => _bulletMaxCount - _usedBulletCount;  
 
         [SerializeField] private List<TargetController> _targetList;
         [SerializeField] private Animator _anim;
@@ -22,6 +24,8 @@ namespace _knockBalls.Scripts.Level
 
         public void Initialize(LevelController level)
         {
+            BulletManager.Instance.StartChapter(_bulletMaxCount);
+            InGameCanvas.Instance.UpdateBulletCountTxt();
             _anim.CrossFade("Open", 0f);
             TargetFired += AllTargetFiredControl;
             _level = level;
@@ -59,6 +63,8 @@ namespace _knockBalls.Scripts.Level
                 return false;
             }
 
+            InGameCanvas.Instance.UpdateBulletCountTxt();
+            BulletManager.Instance.CloseLastBulletObject();
             return true;
         }
     }
