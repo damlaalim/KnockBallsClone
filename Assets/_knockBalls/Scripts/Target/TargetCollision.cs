@@ -22,7 +22,7 @@ namespace _knockBalls.Scripts.Target
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.CompareTag($"Plane"))
+            if (other.transform.CompareTag($"Plane") || other.transform.CompareTag($"Wall"))
             {
                 _target.Destroy();
             }
