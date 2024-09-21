@@ -8,12 +8,18 @@ namespace _knockBalls.Scripts.Level
     public class LevelController : MonoBehaviour
     {
         [SerializeField] private List<ChapterController> _chapterList;
-
+        [SerializeField] private Color _fogColor, _renderFogColor;
+        [SerializeField] private Material _fogMat, _skyBoxMat;
+        
         private int _currentChapterNum;
         private ChapterController _currentChapterObject;
         
         public void Initialize()
         {
+            _fogMat.color = _fogColor;
+            RenderSettings.skybox = _skyBoxMat;
+            RenderSettings.fogColor = _renderFogColor;
+            
             NextChapter();
         }
 

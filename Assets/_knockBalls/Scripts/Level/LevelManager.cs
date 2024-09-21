@@ -18,6 +18,8 @@ namespace _knockBalls.Scripts.Level
         public ChapterController currentChapter;
 
         [SerializeField] private float _failChapterFinishDelay;
+        [SerializeField] private Color _fogColor, _renderFogColor;
+        [SerializeField] private Material _fogMat, _skyBoxMat;
 
         private Coroutine _finishFailRoutine;
         
@@ -32,6 +34,13 @@ namespace _knockBalls.Scripts.Level
         private void Awake()
         {
             Instance ??= this;
+        }
+
+        private void Start()
+        {
+            _fogMat.color = _fogColor;
+            RenderSettings.skybox = _skyBoxMat;
+            RenderSettings.fogColor = _renderFogColor;
         }
 
         public void StartGame()
