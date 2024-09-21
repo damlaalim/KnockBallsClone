@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _knockBalls.Scripts.CanvasSystem;
 using _knockBalls.Scripts.Data;
+using _knockBalls.Scripts.Score;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Level
@@ -60,6 +61,7 @@ namespace _knockBalls.Scripts.Level
         public void NextLevel()
         {
             Save();
+            ScoreManager.Instance.FinishLevel();
             CanvasManager.Instance.Open(CanvasType.LevelSuccess);
         }
         

@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShoot: 0
+  _puan: 1
   _destroyTime: 2
   rb: {fileID: 551728513710418734}
   _radius: 5

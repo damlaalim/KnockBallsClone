@@ -9,20 +9,27 @@ namespace _knockBalls.Scripts.CanvasSystem
 {
     public class InfoCanvas : CanvasController
     {
-        [SerializeField] private TextMeshProUGUI _scoreText, _levelText;
+        [SerializeField] private TextMeshProUGUI _scoreText, _levelText, _highScoreText;
         [SerializeField] private ParticleSystem _openParticle;
         
         public override void Open()
         {
             base.Open();
-
+            
             GameManager.Instance.gameIsStart = false;
             
             if (_openParticle)
                 _openParticle.Play();
             
             _levelText.text = (LevelManager.Instance.LevelNumber + 1).ToString();
-            _scoreText.text = ScoreManager.Instance.GetHighScore.ToString();
+
+            var scoreManager = ScoreManager.Instance;
+            if (_scoreText)
+                _scoreText.text = scoreManager.GetScore.ToString();
+            if (_highScoreText)
+                _highScoreText.text = scoreManager.GetHighScore.ToString();
+            
+            scoreManager.ResetScore();
         }
 
         public void StartGame()

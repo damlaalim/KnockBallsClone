@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using _knockBalls.Scripts.Level;
+using _knockBalls.Scripts.Score;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Target
@@ -7,7 +8,8 @@ namespace _knockBalls.Scripts.Target
     public class TargetController : MonoBehaviour
     {
         public bool isShoot;
-        
+
+        [SerializeField] private int _puan;
         [SerializeField] private float _destroyTime;
         [SerializeField] protected Rigidbody rb;
         private ChapterController _chapter;
@@ -22,6 +24,8 @@ namespace _knockBalls.Scripts.Target
         public virtual void Destroy()
         {
             if (_isDestroy) return;
+
+            ScoreManager.Instance.IncreaseScore(_puan);
             _isDestroy = isShoot = true;
             _chapter.TargetFired?.Invoke();
 

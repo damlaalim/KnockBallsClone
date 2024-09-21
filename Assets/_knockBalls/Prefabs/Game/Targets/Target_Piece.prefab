@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35ab4a4865643d4b9ca1187166ffe81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShoot: 0
+  _puan: 1
   _destroyTime: 2
   rb: {fileID: 2952455632988023564}
   _targetGroup: {fileID: 0}
