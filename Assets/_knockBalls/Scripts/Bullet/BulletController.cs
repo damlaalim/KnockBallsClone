@@ -10,10 +10,12 @@ namespace _knockBalls.Scripts.Bullet
 
         private BulletManager _bulletManager;
         private Rigidbody _rb;
-
+        private BulletCollision _collision;
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+            _collision = GetComponent<BulletCollision>();
         }
 
         public void Initialize(Vector3 initPosition, BulletManager bulletManager)
@@ -22,6 +24,7 @@ namespace _knockBalls.Scripts.Bullet
             _bulletManager = bulletManager;
 
             transform.localScale = Vector3.one;
+            _rb.useGravity = true;
         }
 
         public void Destroy()
@@ -43,8 +46,11 @@ namespace _knockBalls.Scripts.Bullet
                 yield return 0;
             }
             
-            transform.localScale = Vector3.zero;    
+            transform.localScale = Vector3.zero;  
             _bulletManager.SetBullet(gameObject);
+            _collision.destroy = false;
+            _rb.useGravity = false;
+            _rb.velocity = Vector3.zero;
         }
         
         public void Move(Vector3 targetPos)

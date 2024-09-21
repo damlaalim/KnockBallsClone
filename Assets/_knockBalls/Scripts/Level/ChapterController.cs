@@ -59,7 +59,7 @@ namespace _knockBalls.Scripts.Level
         {
             _usedBulletCount++;
 
-            if (_usedBulletCount >= _bulletMaxCount)
+            if (_usedBulletCount > _bulletMaxCount)
             {
                 LevelManager.Instance.FinishTheFailChapter();
                 // _level.ClearChapters();

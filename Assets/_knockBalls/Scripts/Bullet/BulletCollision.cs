@@ -7,7 +7,7 @@ namespace _knockBalls.Scripts.Bullet
     {
         private BulletController _bullet;
 
-        private bool _destroy;
+        public bool destroy;
         
         private void Start()
         {
@@ -16,24 +16,23 @@ namespace _knockBalls.Scripts.Bullet
 
         private void CallDestroyMethod()
         {
-            _destroy = false;   
             _bullet.Destroy();
         }
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.transform.CompareTag($"Plane") && !_destroy) 
+            if (other.transform.CompareTag($"Plane") && !destroy) 
             {
-                _destroy = true;
+                destroy = true;
                 Invoke("CallDestroyMethod", .5f);
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.CompareTag($"Wall") && !_destroy)
+            if (other.transform.CompareTag($"Wall") && !destroy)
             {
-                _destroy = true;
+                destroy = true;
                 Invoke("CallDestroyMethod", .5f);
             }
         }
