@@ -158,12 +158,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1027867930}
-  - {fileID: 963194228}
   - {fileID: 1070993566}
   - {fileID: 705507995}
   - {fileID: 1485515136}
   - {fileID: 7557324}
   - {fileID: 552556624}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &346728652
@@ -455,6 +455,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3593352898895218681, guid: 26cf6118266f981418a422cd30b5c0b8, type: 3}
   m_PrefabInstance: {fileID: 6083029053164898273}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &963194231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3167448567786994323, guid: 26cf6118266f981418a422cd30b5c0b8, type: 3}
+  m_PrefabInstance: {fileID: 6083029053164898273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bf305705c8481bb52e7cef7e6cecc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1023085632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4917593652011730292, guid: feb46b78f78e74267836b445901cf537, type: 3}
@@ -886,6 +897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6880656426548407080, guid: 1b2bea651b8c9f84ca7ed0fbdb929e0a, type: 3}
+      propertyPath: _cameraShake
+      value: 
+      objectReference: {fileID: 963194231}
     - target: {fileID: 6880656426548407080, guid: 1b2bea651b8c9f84ca7ed0fbdb929e0a, type: 3}
       propertyPath: _initTransform
       value: 

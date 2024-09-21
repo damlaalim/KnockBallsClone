@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using _knockBalls.Scripts.CameraSystems;
 using _knockBalls.Scripts.Cannon;
 using _knockBalls.Scripts.CanvasSystem;
-using _knockBalls.Scripts.Game;
 using _knockBalls.Scripts.Level;
 using _knockBalls.Scripts.Sound;
 using UnityEngine;
@@ -17,6 +17,7 @@ namespace _knockBalls.Scripts.Bullet
         [SerializeField] private Transform _initTransform;
         [SerializeField] private CannonController _cannonController;
         [SerializeField] private List<GameObject> _bulletObjectList;
+        [SerializeField] private CameraShake _cameraShake;
         
         private Stack<GameObject> _bulletPool = new Stack<GameObject>();
         
@@ -45,6 +46,7 @@ namespace _knockBalls.Scripts.Bullet
             if (!LevelManager.Instance.currentChapter!.CanShoot())
                 return;
             
+            _cameraShake.Shake();
             SoundManager.Instance.PlayEffect(AudioType.Shoot);
             InGameCanvas.Instance.UpdateBulletCountTxt();
             CloseLastBulletObject();
