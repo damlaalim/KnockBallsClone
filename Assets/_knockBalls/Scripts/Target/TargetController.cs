@@ -30,7 +30,9 @@ namespace _knockBalls.Scripts.Target
 
             ScoreManager.Instance.IncreaseScore(_puan);
             _isDestroy = isShoot = true;
-            _chapter.TargetFired?.Invoke();
+            
+            if (_chapter.TargetFired is not null)
+                _chapter.TargetFired.Invoke();
 
             StartCoroutine(Destroy_Routine());
         }

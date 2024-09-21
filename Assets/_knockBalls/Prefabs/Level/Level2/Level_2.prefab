@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chapterList:
-  - {fileID: 3757028543827157858, guid: 5e20ac9cf312cd249a90339cf52b80ff, type: 3}
-  - {fileID: 2215975856877957886, guid: febdf27909cfba74f958e46a7535b40c, type: 3}
+  - {fileID: 3827094008663795477, guid: 8930edbe475687b42a63d819d6565bf7, type: 3}
+  - {fileID: 3737808982512678116, guid: 44903b9c3ba4f434ea2c2112200ca238, type: 3}
+  - {fileID: 2068301349726952947, guid: a5e219966fd3aea4886c6037a2e9d2d1, type: 3}
   _fogColor: {r: 0.6627451, g: 0.41960785, b: 0.6627451, a: 1}
   _renderFogColor: {r: 0.6431373, g: 0.41568628, b: 0.6431373, a: 1}
   _fogMat: {fileID: 2100000, guid: 429b6f14bc192714f9eb38dab8f5957b, type: 2}

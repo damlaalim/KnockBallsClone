@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6883915624685731867
+--- !u!1 &4680909477543406938
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5414498045016593432}
-  - component: {fileID: 8788557268081527352}
+  - component: {fileID: 1484668388720066135}
+  - component: {fileID: 7026097873247098525}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: Level_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5414498045016593432
+--- !u!4 &1484668388720066135
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883915624685731867}
+  m_GameObject: {fileID: 4680909477543406938}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,25 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8788557268081527352
+--- !u!114 &7026097873247098525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883915624685731867}
+  m_GameObject: {fileID: 4680909477543406938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4145aa233c4644689364f9771e146203, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d4704306cd94c2db6c46d7568ff9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 8251924786843742627, guid: a0b78d06cb362a14ba66f8bd13a9c81f, type: 3}
-  - {fileID: 7026097873247098525, guid: 1a7064ddd0c797d4b8e0820867f26e64, type: 3}
-  - {fileID: 7026097873247098525, guid: 2b8f6de74d244c440b143301bfaa5c39, type: 3}
-  currentChapter: {fileID: 0}
-  _failChapterFinishDelay: 3
-  _fogColor: {r: 0.54509807, g: 0.87058824, b: 0.93333334, a: 1}
-  _renderFogColor: {r: 0.5882353, g: 0.84705883, b: 0.8862745, a: 1}
+  _chapterList:
+  - {fileID: 9080750228636411035, guid: 03abdb8e589789446b1b7bf23f3ea7f0, type: 3}
+  - {fileID: 987757096974712679, guid: 19dfb4866a2187049a1bce4eb1341d5e, type: 3}
+  - {fileID: 7384689305333611815, guid: 6c9684dceaa99cc4d8d142e98b296e9f, type: 3}
+  _fogColor: {r: 0.3019608, g: 0.36078432, b: 0.47058824, a: 1}
+  _renderFogColor: {r: 0.25882354, g: 0.31764707, b: 0.44705883, a: 1}
   _fogMat: {fileID: 2100000, guid: 429b6f14bc192714f9eb38dab8f5957b, type: 2}
-  _skyBoxMat: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
+  _skyBoxMat: {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}

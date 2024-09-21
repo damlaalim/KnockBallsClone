@@ -17,6 +17,8 @@ namespace _knockBalls.Scripts.Target
 
         private void TargetGroupDestroy()
         {
+            TargetDestroyed -= TargetGroupDestroy;
+            
             foreach (var target in _targetList)
             {
                 target.Destroy();

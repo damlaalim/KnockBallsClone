@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe652ffeb264d8280ea64eb4811085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireSpeed: 50
+  _fireSpeed: 130
   _destroyTime: 0.2
 --- !u!54 &8619342387804371367
 Rigidbody:
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a68f7ec4774d08aa14a54b3b0a928d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy: 0
 --- !u!96 &600638149588533008
 TrailRenderer:
   serializedVersion: 3
