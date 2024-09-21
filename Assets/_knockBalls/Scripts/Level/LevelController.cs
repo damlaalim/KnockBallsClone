@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using _knockBalls.Scripts.CanvasSystem;
+using _knockBalls.Scripts.Data;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Level
@@ -33,6 +35,7 @@ namespace _knockBalls.Scripts.Level
         {
             _currentChapterObject = Instantiate(_chapterList[_currentChapterNum], transform);
             LevelManager.Instance.currentChapter = _currentChapterObject;
+            LevelManager.Instance.ChapterUpdate?.Invoke();
             _currentChapterObject.Initialize(this);
         }
 
@@ -45,8 +48,9 @@ namespace _knockBalls.Scripts.Level
         public void ClearChapters()
         {
             _currentChapterNum = 0;
-            
-            NextChapter();   
+         
+            CanvasManager.Instance.Open(CanvasType.LevelFail);
+            LevelManager.Instance.DestroyLevel();
         }
     }
 }

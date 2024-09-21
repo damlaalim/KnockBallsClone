@@ -8,10 +8,10 @@ namespace _knockBalls.Scripts.Level
 {
     public class ChapterController : MonoBehaviour
     {
-        // TODO: mermi sayısı kontrol edilecek
         // TODO: yaratılmış mermiler silinecek 
 
         public Action TargetFired;
+        public int chapterNum, maxChapterInLevel;
 
         [SerializeField] private List<TargetController> _targetList;
         [SerializeField] private Animator _anim;

@@ -3,6 +3,8 @@
     public enum CanvasType
     {
         StartGameCanvas,
-            
+        InGame,
+        LevelFail,
+        LevelSuccess
     }
 }

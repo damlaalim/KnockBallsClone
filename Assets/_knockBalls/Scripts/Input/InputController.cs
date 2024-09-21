@@ -1,4 +1,5 @@
 using _knockBalls.Scripts.Bullet;
+using _knockBalls.Scripts.Game;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -34,6 +35,10 @@ namespace _knockBalls.Scripts.Input
         
         private void Update()
         {
+            if (!GameManager.Instance.gameIsStart)
+                return;
+            
+            
             // mobile touch
             if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
             {

@@ -20,7 +20,7 @@ namespace _knockBalls.Scripts.Bullet
         private void OnCollisionEnter(Collision other)
         {
             if (other.transform.CompareTag($"Plane"))
-                Invoke("CallDestroyMethod", 2f);
+                Invoke("CallDestroyMethod", .5f);
         }
     }
 }

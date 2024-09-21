@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8c564dfd7e421db8a4da131d30c62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chapterNum: 2
+  maxChapterInLevel: 3
   _targetList:
   - {fileID: 8901248227565511553}
   - {fileID: 5621599929814681407}

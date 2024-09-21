@@ -5,14 +5,15 @@ namespace _knockBalls.Scripts.CanvasSystem
 {
     public class CanvasController : MonoBehaviour
     {
-        public virtual CanvasType CanvasType => CanvasType.StartGameCanvas;
+        public CanvasType canvasType;
         
-        [SerializeField] protected CanvasManager CanvasManager;
+        protected CanvasManager CanvasManager;
         protected Canvas Canvas; 
 
-        public virtual void Initialize()
+        public virtual void Initialize(CanvasManager canvasManager)
         {
             Canvas = GetComponent<Canvas>();
+            CanvasManager = canvasManager;
             Close();
         }
 

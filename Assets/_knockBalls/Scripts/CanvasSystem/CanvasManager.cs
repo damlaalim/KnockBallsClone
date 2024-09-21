@@ -7,11 +7,17 @@ namespace _knockBalls.Scripts.CanvasSystem
 {
     public class CanvasManager : MonoBehaviour
     {
+        public static CanvasManager Instance { get; private set; } 
         [SerializeField] private List<CanvasController> canvasList;
         [SerializeField] private CanvasType startCanvas;
 
         private CanvasController _current;
         private readonly Stack<CanvasController> _history = new();
+
+        private void Awake()
+        {
+            Instance ??= this;
+        }
 
         private void Start()
         {
@@ -22,7 +28,7 @@ namespace _knockBalls.Scripts.CanvasSystem
         {
             foreach (var canvas in canvasList)
             {
-                canvas.Initialize();
+                canvas.Initialize(this);
             }
             Open(startCanvas);
         }
@@ -39,7 +45,7 @@ namespace _knockBalls.Scripts.CanvasSystem
 
             foreach (var canvasController in canvasList)
             {
-                if (canvasController.CanvasType == canvasType)
+                if (canvasController.canvasType == canvasType)
                 {
                     _current = canvasController;
                     _current.Open();
@@ -65,7 +71,7 @@ namespace _knockBalls.Scripts.CanvasSystem
 
         public bool CanvasIsOpen(CanvasType type)
         {
-            canvasList.Find(x => x.CanvasType == type).TryGetComponent<Canvas>(out var canvas);
+            canvasList.Find(x => x.canvasType == type).TryGetComponent<Canvas>(out var canvas);
 
             return canvas.enabled;
         }
@@ -77,10 +83,10 @@ namespace _knockBalls.Scripts.CanvasSystem
 			
             foreach (var canvasController in canvasList)
             {
-                if (canvasController.CanvasType == current)
+                if (canvasController.canvasType == current)
                     _current = canvasController;
 				
-                if (canvasTypes.Contains(canvasController.CanvasType))
+                if (canvasTypes.Contains(canvasController.canvasType))
                     canvasController.Open();
                 else 
                     canvasController.Close();

@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using _knockBalls.Scripts.CanvasSystem;
+using _knockBalls.Scripts.Data;
 using UnityEngine;
 
 namespace _knockBalls.Scripts.Level
 {
     public class LevelManager : MonoBehaviour
     {
+        public Action ChapterUpdate;
+        
         public static LevelManager Instance { get; private set; } 
         
         public List<LevelController> levels;
@@ -36,17 +40,22 @@ namespace _knockBalls.Scripts.Level
 
         public void Load()
         {
-            if (_currentLevel is not null)
-                Destroy(_currentLevel.gameObject);
+            DestroyLevel();
 
             _currentLevel = Instantiate(levels[LevelNumber]);
             _currentLevel.Initialize();
         }
 
+        public void DestroyLevel()
+        {
+            if (_currentLevel && _currentLevel.gameObject)
+                Destroy(_currentLevel.gameObject);
+        }
+
         public void NextLevel()
         {
             Save();
-            Load();
+            CanvasManager.Instance.Open(CanvasType.LevelSuccess);
         }
     }
  }
