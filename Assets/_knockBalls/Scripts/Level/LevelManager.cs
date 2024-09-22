@@ -80,8 +80,8 @@ namespace _knockBalls.Scripts.Level
 
         public void NextLevel()
         {
-            CanvasManager.Instance.Open(CanvasType.LevelSuccess);
             ScoreManager.Instance.FinishLevel();
+            CanvasManager.Instance.Open(CanvasType.LevelSuccess);
             Save();
         }
         
