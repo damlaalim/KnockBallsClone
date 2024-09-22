@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.12242018, g: 0.17956002, b: 0.26236013, a: 1}
+  m_IndirectSpecularColor: {r: 0.4769926, g: 0.7989865, b: 0.89821994, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -856,7 +856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769737162228003925, guid: 332a5719b362b8c49add4cb7085f9d96, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3120944037478144086, guid: 332a5719b362b8c49add4cb7085f9d96, type: 3}
       propertyPath: _bulletCountText
@@ -1154,6 +1154,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSucUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7271332726740448897, guid: 1e3d0ef2410a8f245904ad0ad4032972, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271332726740448897, guid: 1e3d0ef2410a8f245904ad0ad4032972, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271332726740448897, guid: 1e3d0ef2410a8f245904ad0ad4032972, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8557821284567998783, guid: 1e3d0ef2410a8f245904ad0ad4032972, type: 3}
       propertyPath: m_LocalScale.x
       value: 0
@@ -1227,13 +1239,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2476842376666475592, guid: 710435d95ca0a2845994b42100de41f8, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476842376666475592, guid: 710435d95ca0a2845994b42100de41f8, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476842376666475592, guid: 710435d95ca0a2845994b42100de41f8, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476842376666475592, guid: 710435d95ca0a2845994b42100de41f8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3984591899798182158, guid: 710435d95ca0a2845994b42100de41f8, type: 3}
       propertyPath: m_Name
       value: FogPlane
       objectReference: {fileID: 0}
     - target: {fileID: 3984591899798182158, guid: 710435d95ca0a2845994b42100de41f8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

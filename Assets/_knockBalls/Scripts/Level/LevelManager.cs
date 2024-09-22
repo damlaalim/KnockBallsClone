@@ -29,6 +29,17 @@ namespace _knockBalls.Scripts.Level
             set => PlayerPrefs.SetInt("level", LevelNumber + 1 >= levels.Count ? 0 : value);
         }
 
+        public int PreLevel
+        {
+            get
+            {
+                if (PlayerPrefs.GetInt("level") - 1 >= 0)
+                    return 1;
+                else
+                    return PlayerPrefs.GetInt("level") - 1;
+            }
+        }
+
         private LevelController _currentLevel;
         
         private void Awake()
@@ -69,9 +80,9 @@ namespace _knockBalls.Scripts.Level
 
         public void NextLevel()
         {
-            Save();
-            ScoreManager.Instance.FinishLevel();
             CanvasManager.Instance.Open(CanvasType.LevelSuccess);
+            ScoreManager.Instance.FinishLevel();
+            Save();
         }
         
         public void FinishTheFailChapter()
