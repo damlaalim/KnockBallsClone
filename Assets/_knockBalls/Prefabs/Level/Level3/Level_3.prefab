@@ -48,7 +48,7 @@ MonoBehaviour:
   - {fileID: 9080750228636411035, guid: 03abdb8e589789446b1b7bf23f3ea7f0, type: 3}
   - {fileID: 987757096974712679, guid: 19dfb4866a2187049a1bce4eb1341d5e, type: 3}
   - {fileID: 7384689305333611815, guid: 6c9684dceaa99cc4d8d142e98b296e9f, type: 3}
-  _fogColor: {r: 0.3019608, g: 0.36078432, b: 0.47058824, a: 1}
+  _fogColor: {r: 0.13725491, g: 0.18431373, b: 0.2784314, a: 1}
   _renderFogColor: {r: 0.25882354, g: 0.31764707, b: 0.44705883, a: 1}
   _fogMat: {fileID: 2100000, guid: 429b6f14bc192714f9eb38dab8f5957b, type: 2}
   _skyBoxMat: {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}
