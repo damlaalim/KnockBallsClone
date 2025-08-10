@@ -12,7 +12,12 @@ namespace _knockBalls.Scripts.Sound
 
         private void Awake()
         {
-            Instance ??= this;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
+            Instance = this;
         }
         
         public void PlayEffect(Data.AudioType type)

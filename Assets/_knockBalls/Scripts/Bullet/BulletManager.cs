@@ -23,7 +23,12 @@ namespace _knockBalls.Scripts.Bullet
         
         private void Awake()
         {
-            Instance ??= this;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
+            Instance = this;
         }
         
         public void StartChapter(int bulletCount)

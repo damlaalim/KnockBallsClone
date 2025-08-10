@@ -16,7 +16,12 @@ namespace _knockBalls.Scripts.CanvasSystem
 
         private void Awake()
         {
-            Instance ??= this;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
+            Instance = this;
         }
 
         private void Start()

@@ -19,7 +19,12 @@ namespace _knockBalls.Scripts.Score
 
         private void Awake()
         {
-            Instance ??= this;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
+            Instance = this;
         }
 
         public void IncreaseScore(int num)

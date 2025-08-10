@@ -44,7 +44,12 @@ namespace _knockBalls.Scripts.Level
         
         private void Awake()
         {
-            Instance ??= this;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject); 
+                return;
+            }
+            Instance = this;
         }
 
         private void Start()
