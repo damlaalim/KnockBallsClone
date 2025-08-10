@@ -36,8 +36,9 @@ Each level contains three chapters. Dying in any chapter will return you to the 
 
 
 # Feel
-1. Vibration
+1. Camera Shake
 2. Floating texts
+3. Sound Effects
 
 # Gameplay
 
